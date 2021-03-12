@@ -12,7 +12,7 @@ const Home = () => {
   const [result, setResult] = React.useState();
 
   React.useEffect(() => {
-    axios.get('http://localhost:3333/users')
+    axios.get('http://10.0.2.2:3333/users')
         .then(res => {
           setResult(res.data.message)
         })
