@@ -10,9 +10,12 @@ const app = express();
 app.use(express.json());
 app.use(router);
 
-// not sure if it's working fine (CORS)
-const corsOptions = cors({ origin: "*" })
-app.use(corsOptions);
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    app.use(cors());
+    next();
+});
 
 app.get("/users", (req, res) => {
     return res.json( { message: "ok" } );
