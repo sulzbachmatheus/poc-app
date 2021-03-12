@@ -3,13 +3,13 @@ import { app } from "../app";
 
 import createConnection from '../database'
 
-describe("Users and Surveys", () => {  
+describe("General Tests", () => {  
     
     beforeAll(async () => {
         const connection = await createConnection();
         await connection.runMigrations();
     });
-
+//users
     it("Should be able to create a new user", async () => {
         const response = await request(app).post("/users")
         .send({
@@ -27,7 +27,7 @@ describe("Users and Surveys", () => {
         });
         expect(response.status).toBe(400);
     });
-
+//surveys
     it("Should be able to create a new survey", async () => {
         const response = await request(app).post("/surveys")
         .send({
