@@ -11,6 +11,11 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
+//default route
+app.get("/", (req, res) => {
+    return res.json( { message: "root" } );
+});
+
 app.get("/users", (req, res) => {
     return res.json( { message: "ok" } );
 });
