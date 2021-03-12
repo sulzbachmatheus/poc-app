@@ -15,8 +15,4 @@ app.get("/users", (req, res) => {
     return res.json( { message: "ok" } );
 });
 
-// app.post("/", (req, res) => {
-//     return res.json( { message: "dados salvos com sucesso!" } );
-// });
-
 export { app }
